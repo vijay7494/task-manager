@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  background-color: #181818;
+  color: #fff;
+  font-size: 17px;
+
+  height: 100vh;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 45px;
+  aspect-ratio: 1;
+  --c: no-repeat linear-gradient(#27AE60 calc(50% - 10px),#0000 0 calc(50% + 10px),#000 0);
+  background: 
+    var(--c) 0%   100%,
+    var(--c) 50%  100%,
+    var(--c) 100% 100%;
+  background-size: 20% calc(200% + 20px);
+  animation:l4 1s infinite linear;
+}
+input,
+textarea,
+button {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+
+@keyframes l4 {
+    33%  {background-position: 0% 50%,50% 100%,100% 100%}
+    50%  {background-position: 0%  0%,50%  50%,100% 100%}
+    66%  {background-position: 0%  0%,50%   0%,100%  50%}
+    100% {background-position: 0%  0%,50%   0%,100%   0%}
+}
